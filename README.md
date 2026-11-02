@@ -109,3 +109,9 @@ bst.exe
 The major course project applying these data structures is hosted in its dedicated repository:
 * [DineTrack Restaurant Management System](https://github.com/Tanmayi-n14/dinetrack-restaurant-management-DSA) — Modular C implementation integrating Queues for orders, Stacks for billing actions, Linked Lists for dynamic menus, and Hash tables for fast item lookup.
 
+---
+
+## 👤 Author
+
+* **Tanmayi Nagabhairava** ([@Tanmayi-n14](https://github.com/Tanmayi-n14)) — `PES1UG24CS493`
+* Department of Computer Science & Engineering, PES University
