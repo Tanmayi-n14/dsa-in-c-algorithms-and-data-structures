@@ -1,0 +1,11 @@
+# Binaries and build artifacts
+*.exe
+*.out
+*.o
+*.obj
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

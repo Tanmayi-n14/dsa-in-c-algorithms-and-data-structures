@@ -1,0 +1,140 @@
+//ASCENDING ORDER
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 100
+
+int heap[MAX];
+int n = 0; 
+
+int stack[MAX];
+int top = -1;
+
+void push(int val) 
+{
+    if (top == MAX - 1)
+        printf("Stack Overflow\n");
+    else
+        stack[++top] = val;
+}
+
+int pop() 
+{
+    if (top == -1)
+        return -1;
+    else
+        return stack[top--];
+}
+
+void insert(int val) 
+{
+    n++;
+    int i = n;
+    heap[i] = val;
+    int parent = i / 2;
+
+    while (i > 1 && heap[parent] < heap[i]) 
+	{
+        int temp = heap[parent];
+        heap[parent] = heap[i];
+        heap[i] = temp;
+
+        i = parent;
+        parent = i / 2;
+    }
+}
+
+void heapify_max(int i) 
+{
+    int largest = i;
+    int left = 2 * i;
+    int right = 2 * i + 1;
+
+    if (left <= n && heap[left] > heap[largest])
+        largest = left;
+    if (right <= n && heap[right] > heap[largest])
+        largest = right;
+
+    if (largest != i) 
+	{
+        int temp = heap[i];
+        heap[i] = heap[largest];
+        heap[largest] = temp;
+        heapify_max(largest);
+    }
+}
+
+void delete_max_and_adjust() 
+{
+    if (n == 0) 
+	{
+        printf("Heap is empty.\n");
+        return;
+    }
+
+    printf("Deleted max element: %d\n", heap[1]);
+
+    heap[1] = heap[n];
+    n--;
+
+    heapify_max(1);
+
+    int temp[MAX];
+    for (int i = 1; i <= n; i++)
+        temp[i] = heap[i];
+
+    for (int i = 1; i <= n - 1; i++) 
+	{
+        for (int j = i + 1; j <= n; j++) 
+		{
+            if (temp[i] > temp[j]) 
+			{
+                int t = temp[i];
+                temp[i] = temp[j];
+                temp[j] = t;
+            }
+        }
+    }
+
+    printf("Heap adjusted to ascending order:\n");
+    for (int i = 1; i <= n; i++) 
+	{
+        printf("%d ", temp[i]);
+        push(temp[i]); 
+    }
+    printf("\n");
+}
+
+void display_stack() 
+{
+    printf("\nStack contents (popping):\n");
+    while (top != -1)
+        printf("%d ", pop());
+    printf("\n");
+}
+
+int main() 
+{
+    int i, val;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for (i = 1; i <= n; i++) 
+	{
+        scanf("%d", &val);
+        heap[i] = val;
+    }
+
+    for (i = n / 2; i >= 1; i--)
+        heapify_max(i);
+    printf("Max Heap: ");
+    for (i = 1; i <= n; i++)
+        printf("%d ", heap[i]);
+    printf("\n");
+    delete_max_and_adjust();
+    display_stack();
+
+    return 0;
+}
