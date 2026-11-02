@@ -8,10 +8,9 @@ All source implementations preserve original in-line commentary, step-by-step no
 
 ## 📂 Repository Structure
 
-The implementations are structured by domain into 7 core modules, accompanied by the master assignment log in the root directory:
+The implementations are structured by domain into 7 core modules:
 
 ```
-├── dsa_assignments.c                  # Master assignment syllabus, prompts, and timeline log
 ├── 01-linked-lists/                   # Singly, Doubly, Circular Linked Lists, and Applications
 ├── 02-stacks-and-expressions/         # Stack implementations, Infix/Postfix/Prefix, and Parsing
 ├── 03-queues/                         # Linear, Circular, Linked-list, and Priority Queues
@@ -110,7 +109,3 @@ bst.exe
 The major course project applying these data structures is hosted in its dedicated repository:
 * [DineTrack Restaurant Management System](https://github.com/Tanmayi-n14/dinetrack-restaurant-management-DSA) — Modular C implementation integrating Queues for orders, Stacks for billing actions, Linked Lists for dynamic menus, and Hash tables for fast item lookup.
 
----
-
-## 📝 Coursework Notes & Diary
-The root file [`dsa_assignments.c`](dsa_assignments.c) contains the original chronological assignment log, submission checkpoints, and topic instructions recorded throughout the semester.
